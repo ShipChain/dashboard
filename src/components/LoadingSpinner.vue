@@ -81,7 +81,7 @@ export default class LoadingSpinner extends Vue {
   height: 60px;
   border-radius: 50%;
   border: 8px solid #000;
-  border-color: #5756e6 transparent #5756e6 transparent;
+  border-color: #eb6733 transparent #eb6733 transparent;
   -webkit-animation: lds-dual-ring 0.8s linear infinite;
   animation: lds-dual-ring 0.8s linear infinite;
 }
@@ -106,7 +106,7 @@ export default class LoadingSpinner extends Vue {
 }
 
 .loading-text {
-  color: #5756e6;
+  color: #eb6733;
 font-style: italic;
 }
 

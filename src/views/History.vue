@@ -256,7 +256,7 @@
     justify-content: flex-end;
   }
   .query-past-events {
-    color: #007bff !important;
+    color: #0c359f !important;
     cursor: pointer;
   }
   .tab-heading {

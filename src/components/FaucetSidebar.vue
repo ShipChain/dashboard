@@ -60,7 +60,7 @@ export default class FaucetSidebar extends Vue {
   font-weight: bold;
 }
 .router-active {
-  border-left: 5px solid #5756e6;
+  border-left: 5px solid #eb6733;
   font-weight: bold
 }
 .router {
@@ -81,6 +81,6 @@ h4, h1 {
   opacity: 0.6;
 }
 .login-link {
-  color: #007bff;
+  color: #0c359f;
 }
 </style>

@@ -14,7 +14,7 @@
                 header="Warning"
                 class="text-center mb-3">
           <b-card-text>
-            <p class="warning-copy mb-2">{{currentAllowance}} LOOM awaiting transfer to plasmachain account.</p>
+            <p class="warning-copy mb-2">{{currentAllowance}} SHIP awaiting transfer to shipchain account.</p>
             <b-btn size="sm" variant="primary" @click="completeDeposit">Resume Deposit</b-btn>
           </b-card-text>
         </b-card>      
@@ -22,13 +22,13 @@
         <div class="p3">
           <h6>{{ $t('views.my_account.mainnet') }}</h6>
           <h5 class="highlight">
-            {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " LOOM"}}
-            <loom-icon :color="'#f0ad4e'"/>
+            {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}
+            <loom-icon :color="'#eb6733'"/>
           </h5>
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>                            
           <h5 class="highlight">
-            {{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " LOOM"}}
-            <loom-icon :color="'#f0ad4e'"/>
+            {{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " SHIP"}}
+            <loom-icon :color="'#eb6733'"/>
           </h5>
           <!-- unclaimed -->
           <div v-if="unclaimWithdrawTokensETH > 0 && !gatewayBusy">
@@ -83,7 +83,7 @@
     <b-card title="Rewards" class="mb-4">
       <router-link tag="h5" to="/rewards" class="highlight" >
         {{rewardsValue}}
-        <loom-icon :color="'#f0ad4e'"/>
+        <loom-icon :color="'#eb6733'"/>
       </router-link>
     </b-card>
 
@@ -295,7 +295,7 @@ export default class MobileAccount extends Vue {
   }
 
   get rewardsValue() {
-    return this.rewardsResults ? (this.rewardsResults.toString() + " LOOM") : "0.00"
+    return this.rewardsResults ? (this.rewardsResults.toString() + " SHIP") : "0.00"
   }
 
 
@@ -641,7 +641,7 @@ h3 {
   button {
     margin: 0 auto;
     display: block;
-    background-color: #4e4fd2;    
+    background-color: #0c359f;
   }
 }
 

@@ -88,7 +88,7 @@ export default class ValidatorList extends Vue {
 main.validators {
   // ther should be global class for page titles
   header > h1 {
-    color: #5246d5;
+    color: #0c359f;
     font-size: 1.35em;
     text-align: center;
     margin: 16px -14px;

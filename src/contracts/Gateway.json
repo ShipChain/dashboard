@@ -786,34 +786,34 @@
     "15": {
       "events": {},
       "links": {},
-      "address": "0xd242754d9d02f46d4e33b0edaff04099a0a346af",
-      "transactionHash": "0xb5926758f27bccdd35943e44704b98ac9ee224676ca8fed75a1e42c081d28124"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b",
+      "transactionHash": "0xcb5300e9b5422d1af28e8d08551fcc8aa1ec92c69aced044694d0e2e6908cdac"
     },
     "4": {
       "events": {},
       "links": {},
-      "address": "0x682721650515Bac4b46801E06C3B3848132c78F6",
-      "transactionHash": "0xb5926758f27bccdd35943e44704b98ac9ee224676ca8fed75a1e42c081d28124"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b",
+      "transactionHash": "0xcb5300e9b5422d1af28e8d08551fcc8aa1ec92c69aced044694d0e2e6908cdac"
     },
     "loomv2a": {
       "events": {},
       "links": {},
-      "address": "0xEF1cb981a16b1e665549C16d5B2684e4E480a7E4"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b"
     },    
     "loomv2b": {
       "events": {},
       "links": {},
-      "address": "0x7Cfda910e2dbF7E88D79c7Cad5F78354f994b8b7"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b"
     },
     "default": {
       "events": {},
       "links": {},
-      "address": "0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b"
     },
     "us1": {
       "events": {},
       "links": {},
-      "address": "0x76c41eFFc2871e73F42b2EAe5eaf8Efe50bDBF73"
+      "address": "0x30754a3D79B47Cf402D36Fa6EfB7039dcBB52c7b"
     }     
   }
 }

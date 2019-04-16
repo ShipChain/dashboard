@@ -100,7 +100,7 @@ export default class WarningOverlay extends Vue {
       margin-bottom: 6px;
     }
     .address {
-      color: #5756e6;
+      color: #eb6733;
       background-color: #ffd1de;
       border-radius: 3px;
       padding: 3px 6px;
@@ -111,7 +111,7 @@ export default class WarningOverlay extends Vue {
       height: 180px;
       margin: 0 auto;
       overflow: hidden;
-      border: 4px solid #5756e6;
+      border: 4px solid #eb6733;
       border-radius: 50%;
       background: rgb(238,174,202);
       background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);   

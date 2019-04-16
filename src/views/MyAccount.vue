@@ -28,9 +28,9 @@
                           </div>                          
                           <div class="balance-container mt-2">
                             <h5><strong>{{ $t('views.my_account.balance') }}</strong></h5>
-                            <h6>{{ $t('views.my_account.mainnet') }} <strong>{{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " LOOM"}}</strong></h6>
-                            <div v-if="currentAllowance && !gatewayBusy"><small ><fa icon="fa exclamation-triangle"/> {{currentAllowance}} LOOM out of mainnet balance awaiting transfer to plasmachain account</small> <b-btn size="sm" variant="outline-primary" style="display: inline-block;margin-left: 12px;" @click="completeDeposit">resume deposit</b-btn></div>                        
-                            <h6>{{ $t('views.my_account.plasmachain') }} <strong>{{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " LOOM"}}</strong></h6>                            
+                            <h6>{{ $t('views.my_account.mainnet') }} <strong>{{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}</strong></h6>
+                            <div v-if="currentAllowance && !gatewayBusy"><small ><fa icon="fa exclamation-triangle"/> {{currentAllowance}} SHIP out of mainnet balance awaiting transfer to ShipChain Network account</small> <b-btn size="sm" variant="outline-primary" style="display: inline-block;margin-left: 12px;" @click="completeDeposit">resume deposit</b-btn></div>
+                            <h6>{{ $t('views.my_account.plasmachain') }} <strong>{{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " SHIP"}}</strong></h6>
                           </div>                          
                         </div>
                         <div class="col text-center" style="display:none">
@@ -77,7 +77,7 @@
                           <b-card no-body v-if="metamaskConnected">
                             <b-tabs card>
                               <b-tab title="Deposit" v-if="!oracleEnabled" active>
-                                Plasmachain wallet is undergoing scheduled upgrades... Please check back in 1-2 hours.
+                                ShipChain Network wallet is undergoing scheduled upgrades... Please check back in 1-2 hours.
                               </b-tab>
                               <b-tab title="Deposit" v-if="userBalance.mainnetBalance > 0 && oracleEnabled" active>
                                 <TransferStepper 
@@ -96,7 +96,7 @@
                                   <span class="tab-title">Withdraw</span>
                                   <fa icon="info-circle" v-if="unclaimWithdrawTokensETH > 0 || unclaimDepositTokens > 0" class="tab-icon text-red"/>
                                 </template>
-                                <p>Please note that withdrawal is subject to a daily limit of 500k LOOM. You have {{withdrawLimit}} allowance left.</p>
+                                <p>Please note that withdrawal is subject to a daily limit of 500k SHIP. You have {{withdrawLimit}} allowance left.</p>
 
                                 <TransferStepper v-if="unclaimWithdrawTokensETH == 0 && unclaimDepositTokens == 0"
                                   @withdrawalDone="afterWithdrawalDone"
@@ -856,7 +856,7 @@ export default class MyAccount extends Vue {
       margin-bottom: 6px;
     }
     .address {
-      color: #5756e6;
+      color: #eb6733;
       background-color: #ffd1de;
       border-radius: 3px;
       padding: 3px 6px;
@@ -867,7 +867,7 @@ export default class MyAccount extends Vue {
       height: 180px;
       margin: 0 auto;
       overflow: hidden;
-      border: 4px solid #5756e6;
+      border: 4px solid #eb6733;
       border-radius: 50%;
       background: rgb(238,174,202);
       background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);   

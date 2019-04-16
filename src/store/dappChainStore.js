@@ -40,30 +40,15 @@ network config
 4: rinkeby
  */
 const clientNetwork = {
-  '1': {
+  'hydra-testing.network.shipchain.io': {
     network: 'default',
-    websockt: 'wss://test-z-asia1.dappchains.com/websocket',
-    queryws: 'wss://test-z-asia1.dappchains.com/queryws'
+    websockt: 'wss://hydra-testing.network.shipchain.io:46658/websocket',
+    queryws: 'wss://hydra-testing.network.shipchain.io:46658/queryws'
   },
-  '4': {
-    network: 'asia1',
-    websockt: 'wss://test-z-asia1.dappchains.com/websocket',
-    queryws: 'wss://test-z-asia1.dappchains.com/queryws'
-  },
-  'asia1': {
-    network: 'asia1',
-    websockt: 'wss://test-z-asia1.dappchains.com/websocket',
-    queryws: 'wss://test-z-asia1.dappchains.com/queryws'
-  },
-  'plasma': {
+  'hydra-testing2.network.shipchain.io': {
     network: 'default',
-    websockt: 'wss://plasma.dappchains.com/websocket',
-    queryws: 'wss://plasma.dappchains.com/queryws'
-  },
-  'stage': {
-    network: 'default',
-    websockt: 'wss://test-z-us1.dappchains.com/websocket',
-    queryws: 'wss://test-z-us1.dappchains.com/queryws'
+    websockt: 'wss://hydra-testing2.network.shipchain.io:46658/websocket',
+    queryws: 'wss://hydra-testing2.network.shipchain.io:46658/queryws'
   },
   'local': {
     network: 'default',
@@ -73,39 +58,34 @@ const clientNetwork = {
 }
 
 function defaultNetworkId() {
-  const domain = getDomainType()
-  let loomNetwork
-  if (domain === 'local' || domain == 'rinkeby') {
-    loomNetwork = 'asia1'
-  } else if (domain == 'stage') {
-    loomNetwork = 'stage'
+  const domain = getDomainType();
+  let loomNetwork;
+  if (domain === 'local') {
+    loomNetwork = 'local'
   } else {
-    // TODO: Switch to prod chain ('plasma') 
-    // when vault is fixed to not update data
-    loomNetwork = 'asia1'
+    loomNetwork = 'hydra-testing.network.shipchain.io'
   }
-  return loomNetwork
+  return loomNetwork;
 }
 
 function defaultChainId() {
-  return 'asia1'
+  return 'default'
 }
 
 const getChainUrls = () => {
-  let chainUrlsJSON = sessionStorage.getItem('chainUrls')
-  let chainUrls
+  let chainUrlsJSON = sessionStorage.getItem('chainUrls');
+  let chainUrls;
   if (!chainUrlsJSON) {
     chainUrls = [
-      clientNetwork['plasma'],
-      clientNetwork['4'],      
-      clientNetwork['stage'],
+      clientNetwork['hydra-testing.network.shipchain.io'],
+      clientNetwork['hydra-testing2.network.shipchain.io'],
       clientNetwork['local'],
     ]
   } else {
-    chainUrls = JSON.parse(chainUrlsJSON)
+    chainUrls = JSON.parse(chainUrlsJSON);
   }
-  return chainUrls
-}
+  return chainUrls;
+};
 
 const getChainIndex = (chainUrls) => {
   let chainIndex = sessionStorage.getItem('chainIndex')

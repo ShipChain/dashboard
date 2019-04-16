@@ -16,7 +16,7 @@
       <nav class="navbar">
         <div class="container-fluid">
           <router-link to="/account" class="navbar-brand">
-            <loom-icon width="18px" height="18px" :color="'#ffffff'"/> Plasmachain          
+            <loom-icon width="18px" height="18px" :color="'#ffffff'"/> ShipChain Network
           </router-link>          
           <form class="form-inline">
             <LangSwitcher/>
@@ -393,7 +393,7 @@ export default class FaucetHeader extends Vue {
 <style lang="scss">
 
 .navbar {
-  background: #5756e6;
+  background: #eb6733;
   .navbar-brand {
     color: #ffffff;
   }
@@ -435,7 +435,7 @@ export default class FaucetHeader extends Vue {
 }
 
 .sign-out-link {  
-  color: #007bff !important;
+  color: #0c359f !important;
 }
 
 .sub-menu-links {

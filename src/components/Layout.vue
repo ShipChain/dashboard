@@ -299,7 +299,7 @@ export default class Layout extends Vue {
   }
 
   .highlight {
-    color: #f0ad4e;
+    color: #eb6733;
   }
 
   @media (max-width: 576px) {
@@ -334,7 +334,7 @@ export default class Layout extends Vue {
     }
     .router-active {
       border-left: 0px !important;
-      border-bottom: 5px solid #5756e6;
+      border-bottom: 5px solid #eb6733;
     }
   }
   

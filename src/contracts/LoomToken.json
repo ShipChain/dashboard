@@ -1386,40 +1386,40 @@
     "4": {
       "events": {},
       "links": {},
-      "address": "0xF858C8B28654F018cA08f7C092910Da30A31Ccda",
-      "transactionHash": "0xeef7225ceabdf29f34de0560a7b11b671f2e536e4128a5bd5d03a11b89fd10ec"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A",
+      "transactionHash": "0x06e442c9e7abc911e4069188e428a5ac1d5f2a600a0b084ab905d44feef0bd26"
     },
     "stage": {
       "events": {},
       "links": {},
-      "address": "0x40d4071fd95a1f12440b6b44f45ebf93f6c4a91e",
-      "transactionHash": "0x61dc5f0d2bfdc1eb18fbe3127b1bbd8cec766bf9dd0b2f2c36ef9f8bdd41579a"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A",
+      "transactionHash": "0x06e442c9e7abc911e4069188e428a5ac1d5f2a600a0b084ab905d44feef0bd26"
     },
     "asia1": {
       "events": {},
       "links": {},
-      "address": "0x97D24aCf088BBA06dB8b3675eF17bC02077CbDFa",
-      "transactionHash": "0x53637145a27d67bdf3b9cbf2d6486ae59f3c2fe1016d22e6791936b212fdf4c1"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A",
+      "transactionHash": "0x06e442c9e7abc911e4069188e428a5ac1d5f2a600a0b084ab905d44feef0bd26"
     },    
     "loomv2a": {
       "events": {},
       "links": {},
-      "address": "0xD154220D4aE32d0e00Eee5517b57dcdc4CAfb266"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A"
     },
     "loomv2b": {
       "events": {},
       "links": {},
-      "address": "0xA9175bd0C41EB74A2f39104A82A21F3aa6c8B29D"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A"
     },
     "default": {
       "events": {},
       "links": {},
-      "address": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A"
     },
     "us1": {
       "events": {},
       "links": {},
-      "address": "0x165245382ff23A5D3782b48286B6A81b6fd0508e"
+      "address": "0xA14C1d4ACEB983626c066EBB3d9437E68f888b3A"
     }
   },
   "schemaVersion": "2.0.0",

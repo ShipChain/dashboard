@@ -7,7 +7,7 @@
             <h4 class="mb-4">
               {{ $t('views.rewards.unclaimed_rewards') }} 
               <strong>
-                {{rewardsResults.toString() + " LOOM"}}
+                {{this.rewardsResults.toString() + " SHIP"}}
               </strong>
             </h4>
             <b-button id="claimRewardBtn" class="px-5 py-2" variant="primary" @click="claimRewardHandler">{{ $t('views.rewards.claim_reward') }}</b-button>
@@ -56,7 +56,7 @@ export default class ValidatorDetail extends Vue {
   pollInterval = null
 
   @Watch('$route')
-  onRouteChange(newValue, oldValue) {      
+  onRouteChange(newValue, oldValue) {
     if(newValue) {
       this.queryRewards()
     }

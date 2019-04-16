@@ -85,7 +85,7 @@
       "my_address": "My Address",
       "balance": "Balance",
       "mainnet": "Mainnet",
-      "plasmachain": "PlasmaChain",
+      "plasmachain": "ShipChain Network",
       "account_details": "Account details",
       "deposit_withdraw": "Deposit withdraw",
       "connect_to_deposit_funds": "Connect to deposit funds",
@@ -95,7 +95,7 @@
       "deposit": "Deposit",
       "withdraw": "Withdraw",
       "use_maximum": "Use maximum",
-      "transfer_to_plasmachain_for_staking": "Transfer to plasmachain for staking",
+      "transfer_to_plasmachain_for_staking": "Transfer to ShipChain Network for staking",
       "withdraw_to_metamask": "Withdraw to your wallet",
       "wait_tx": "Your transaction is in queue. Please wait for few minutes then your balance will update after transaction get confirmed.",
       "tokens_pending_deposit": "You have a pending deposit of {pendingDepositAmount} tokens. You must complete the deposit before making another.",
@@ -201,7 +201,7 @@
       "already_mapped": " Your selected accout is already mapped. Please select new account."
     },
     "loading_spinner": {
-      "please_be_patient_loomy_is": "Please be patient, Loomy is on it!",
+      "please_be_patient_loomy_is": "Please be patient, Mr. Shippy is on it!",
       "this_could_take_several_minutes": "This could take several minutes. Please don't close or refresh your browser"
     },
     "modals": {
