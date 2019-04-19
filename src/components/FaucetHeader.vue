@@ -140,6 +140,7 @@ const DPOSStore = createNamespacedHelpers('DPOS')
     ...DappChainStore.mapActions([
       'addChainUrl',
       'getDappchainLoomBalance',
+      'getClaimedShip',
       'getMetamaskLoomBalance',
       'getAccumulatedStakingAmount'
     ]),
@@ -299,12 +300,17 @@ export default class FaucetHeader extends Vue {
         address: this.currentMetamaskAddress
       })
       let stakedAmount = await this.getAccumulatedStakingAmount()
+      let claimedShip = await this.getClaimedShip({
+        web3: this.web3,
+        address: this.currentMetamaskAddress
+      })
       let isLoading = false
       this.setUserBalance({
         isLoading,
         loomBalance,
         mainnetBalance,
-        stakedAmount
+        stakedAmount,
+        claimedShip
       })
       this.showRefreshSpinner = false
       this.errorRefreshing = false

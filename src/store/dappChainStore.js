@@ -10,6 +10,7 @@ import ApiClient from '../services/api'
 import { getDomainType, formatToCrypto } from '../utils'
 import LoomTokenJSON from '../contracts/LoomToken.json'
 import GatewayJSON from '../contracts/Gateway.json'
+import FaucetJSON from '../contracts/ERC20Faucet.json'
 import Debug from "debug"
 
 Debug.enable("dashboard.dapp")
@@ -27,8 +28,8 @@ if (hostname === "dashboard.dappchains.com") {
   LOOM_ADDRESS = ""
   GW_ADDRESS = ""
 } else if ( hostname === "dev-dashboard.dappchains.com") {
-  LOOM_ADDRESS = "0x165245382ff23A5D3782b48286B6A81b6fd0508e"
-  GW_ADDRESS = "0x76c41eFFc2871e73F42b2EAe5eaf8Efe50bDBF73"
+  LOOM_ADDRESS = ""
+  GW_ADDRESS = ""
 } else {
   LOOM_ADDRESS = ""
   GW_ADDRESS = ""
@@ -313,6 +314,21 @@ export default {
       } catch (err) {
         console.error(err)
       }
+    },
+    async getClaimedShip({ state }) {
+      try {
+        const accounts = await state.web3.eth.getAccounts();
+        if (accounts.length === 0) {
+          return 0;
+        }
+        const address = accounts[0];
+        const faucet = new state.web3.eth.Contract(FaucetJSON.abi, FaucetJSON.networks.default.address);
+        const claimed = await faucet.methods.claimedTokens(address).call();
+        return +state.web3.utils.fromWei(claimed, 'ether');
+      } catch (error) {
+        console.error(error)
+      }
+      return 0;
     },
     async getMetamaskLoomBalance({ state , commit}, payload) {
       if (!state.web3) return 0

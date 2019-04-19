@@ -24,6 +24,8 @@
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
+            <b-btn @click="request250kShip" :disabled="userBalance.claimedShip > 250000" variant="primary" >Request 250k beta Ship</b-btn>
+            <b-btn @click="request5kShip"  :disabled="userBalance.claimedShip > 295000" variant="primary" >Request 5k beta Ship</b-btn>
           </h5>
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>                            
           <h5 class="highlight">
@@ -134,6 +136,8 @@ import { setTimeout } from 'timers'
 import { formatToCrypto, sleep } from '../utils.js'
 import TransferStepper from '../components/TransferStepper'
 import DepositForm from '@/components/gateway/DepositForm'
+
+import FaucetJSON from '../contracts/ERC20Faucet.json'
 
 const log = debug('mobileaccount')
 
@@ -353,6 +357,27 @@ export default class MobileAccount extends Vue {
       console.error("Error checking allowance", err)
       return 0
     }
+  }
+
+  async request5kShip() {
+    await this.requestShip(this.web3.utils.toWei("5000", 'ether'));
+  }
+  async request250kShip() {
+    await this.requestShip(this.web3.utils.toWei("250000", 'ether'));
+  }
+
+  async requestShip(weiAmount) {
+    this.setGatewayBusy(true)
+    this.setShowLoadingSpinner(true)
+    try {
+      const faucet = new this.web3.eth.Contract(FaucetJSON.abi, FaucetJSON.networks.default.address);
+      await faucet.methods.getTokens(weiAmount).send({from: this.currentMetamaskAddress});
+    } catch (error) {
+      console.error(error)
+    }
+    this.$emit('refreshBalances')
+    this.setGatewayBusy(false)
+    this.setShowLoadingSpinner(false)
   }
 
   async reclaimDepositHandler() {

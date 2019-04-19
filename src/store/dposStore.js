@@ -48,7 +48,8 @@ const defaultState = () => {
       isLoading: true,
       loomBalance: 0,
       mainnetBalance: 0,
-      stakedAmount: 0
+      stakedAmount: 0,
+      claimedShip: 0
     },
     rewardsResults: null,
     timeUntilElectionCycle: null,
