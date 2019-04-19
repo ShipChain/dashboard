@@ -49,7 +49,7 @@
       </b-card-body>
       <b-card-footer class="custom-card-footer">
         <DepositForm />
-        <a v-if="pendingTx" style="display: flex;align-items: center;" :href="`https://etherscan.io/tx/${pendingTx.hash}`" target="_blank">
+        <a v-if="pendingTx" style="display: flex;align-items: center;" :href="`https://rinkeby.etherscan.io/tx/${pendingTx.hash}`" target="_blank">
           <b-spinner variant="primary" style="margin-right:16px;"></b-spinner> <span>pending: {{pendingTx.type}}</span>
         </a>
         <!-- deposit withdraw -->
