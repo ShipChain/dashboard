@@ -24,13 +24,14 @@
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
-            <b-btn @click="request250kShip" :disabled="userBalance.claimedShip > 250000" variant="primary" >Request 250k beta Ship</b-btn>
-            <b-btn @click="request5kShip"  :disabled="userBalance.claimedShip > 295000" variant="primary" >Request 5k beta Ship</b-btn>
+            <b-btn @click="request250kShip" :disabled="userBalance.isLoading || userBalance.claimedShip > 250000" variant="primary" >Request 250k beta Ship</b-btn>
+            <b-btn @click="request5kShip"  :disabled="userBalance.isLoading || userBalance.claimedShip > 295000" variant="primary" >Request 5k beta Ship</b-btn>
           </h5>
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>                            
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
+              <b-btn @click="openTransferShipModal()" :disabled="userBalance.loomBalance == 0" variant="primary">Send to another account</b-btn>
           </h5>
           <!-- unclaimed -->
           <div v-if="unclaimWithdrawTokensETH > 0 && !gatewayBusy">
@@ -118,6 +119,10 @@
       </b-button>
     </div>
 
+  <!-- dialogs -->
+  <transfer-ship-modal @onTransfer="transferHandler" ref="transferShipModalRef" ></transfer-ship-modal>
+  <success-modal></success-modal>
+
   </div>
 </template>
 
@@ -136,6 +141,8 @@ import { setTimeout } from 'timers'
 import { formatToCrypto, sleep } from '../utils.js'
 import TransferStepper from '../components/TransferStepper'
 import DepositForm from '@/components/gateway/DepositForm'
+import TransferShipModal from '../components/modals/TransferShipModal'
+import SuccessModal from '../components/modals/SuccessModal'
 
 import FaucetJSON from '../contracts/ERC20Faucet.json'
 
@@ -152,6 +159,8 @@ const ELECTION_CYCLE_MILLIS = 600000
     FaucetTable,
     TransferStepper,
     DepositForm,
+    TransferShipModal,
+    SuccessModal,
   },
   computed: {
     ...DappChainStore.mapState([
@@ -379,6 +388,16 @@ export default class MobileAccount extends Vue {
     this.setGatewayBusy(false)
     this.setShowLoadingSpinner(false)
   }
+
+    openTransferShipModal() {
+        this.$refs.transferShipModalRef.show()
+    }
+
+    async transferHandler() {
+        this.$root.$emit("refreshBalances")
+        // show success modal
+        this.$root.$emit("bv::hide::modal", "success-modal")
+    }
 
   async reclaimDepositHandler() {
     let result = await this.reclaimDeposit()
