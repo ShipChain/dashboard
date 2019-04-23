@@ -24,14 +24,14 @@
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
-            <b-btn @click="request250kShip" :disabled="userBalance.isLoading || userBalance.claimedShip > 250000" variant="primary" >Request 250k beta Ship</b-btn>
-            <b-btn @click="request5kShip"  :disabled="userBalance.isLoading || userBalance.claimedShip > 295000" variant="primary" >Request 5k beta Ship</b-btn>
+            <b-btn @click="request250kShip" :disabled="userBalance.isLoading || userBalance.claimedShip > 250000" variant="primary" >Request 250k beta SHIP</b-btn>
+            <b-btn @click="request5kShip"  :disabled="userBalance.isLoading || userBalance.claimedShip > 295000" variant="primary" >Request 5k beta SHIP</b-btn>
           </h5>
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>                            
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.loomBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
-              <b-btn @click="openTransferShipModal()" :disabled="userBalance.loomBalance == 0" variant="primary">Send to another account</b-btn>
+              <b-btn @click="openTransferShipModal()" :disabled="userBalance.loomBalance == 0" variant="primary">Transfer SHIP between Sidechain accounts</b-btn>
           </h5>
           <!-- unclaimed -->
           <div v-if="unclaimWithdrawTokensETH > 0 && !gatewayBusy">

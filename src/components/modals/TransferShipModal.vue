@@ -11,7 +11,15 @@
                 </b-row>
                 <b-row class="my-1 mb-3">
                     <b-col sm="3"><label>Address</label></b-col>
-                    <b-col sm="9"><b-form-input v-model="transferDetail.receiver" :state="transferDetail && transferDetail.receiver && isReceiverValid" type="text" ></b-form-input></b-col>
+                    <b-col sm="9">
+                        <b-form-group label="Address Type">
+                            <b-form-radio-group inline v-model="transferDetail.type" >
+                                <b-form-radio value='eth'>Eth</b-form-radio>
+                                <b-form-radio value='default'>Sidechain</b-form-radio>
+                            </b-form-radio-group>
+                            <b-form-input v-model="transferDetail.receiver" :state="transferDetail && transferDetail.receiver && isReceiverValid" type="text" ></b-form-input>
+                        </b-form-group>
+                    </b-col>
                 </b-row>
             </div>
         </b-container>
@@ -63,7 +71,8 @@
     export default class TransferShipModal extends Vue {
         transferDetail = {
             amount: '',
-            receiver: ''
+            receiver: '',
+            type: 'eth',
         };
 
         okTitle = "Transfer";
@@ -83,6 +92,7 @@
                 await this.transferCoinToAddress({
                     receiver: this.transferDetail.receiver,
                     amount: this.transferDetail.amount,
+                    type: this.transferDetail.type,
                 });
                 this.loading = false;
                 this.$emit('onTransfer');
@@ -98,7 +108,16 @@
         }
 
         get isReceiverValid() {
-            return this.transferDetail && this.transferDetail.receiver && web3.utils.isAddress(this.transferDetail.receiver);
+            if(!this.transferDetail || !this.transferDetail.receiver){
+                return false;
+            }
+
+            let inputAddress = this.transferDetail.receiver;
+            if(!web3.utils.isAddress(inputAddress)){
+                console.warn(`Transfer address is not valid checksum ${inputAddress}`);
+                inputAddress = web3.utils.toChecksumAddress(inputAddress);
+            }
+            return web3.utils.isAddress(inputAddress);
         }
 
         show() {

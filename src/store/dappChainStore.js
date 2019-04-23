@@ -476,21 +476,28 @@ export default {
       try {       
         let weiAmount = new BN(state.web3.utils.toWei(payload.amount, 'ether'), 10);
         let mappedChainAddress;
-        let receiverMapping; //0xe27660bd4d0fbcefda56d5d2544d2afa875affee
-        try {
-          const receiverEth = new Address('eth', LocalAddress.fromHexString(payload.receiver));
-          receiverMapping = await rootState.DPOS.mapper.getMappingAsync(receiverEth);
-          mappedChainAddress = receiverMapping.to;
-        } catch (err) {
+
+        if(payload.type === 'eth') {
           try {
-            const receiverDefault = new Address('default', LocalAddress.fromHexString(payload.receiver));
-            receiverMapping = await rootState.DPOS.mapper.getMappingAsync(receiverDefault);
-            mappedChainAddress = receiverMapping.from;
+            const receiverEth = new Address('eth', LocalAddress.fromHexString(payload.receiver));
+            let receiverMapping = await rootState.DPOS.mapper.getMappingAsync(receiverEth);
+            mappedChainAddress = receiverMapping.to;
           } catch (err) {
-            commit('setErrorMsg', {msg: `Account ${payload.receiver} not found`, forever: false, report:true, cause:err}, {root: true})
-            return;
+            try {
+              const receiverDefault = new Address('default', LocalAddress.fromHexString(payload.receiver));
+              let receiverMapping = await rootState.DPOS.mapper.getMappingAsync(receiverDefault);
+              mappedChainAddress = receiverMapping.from;
+            } catch (err) {
+              commit('setErrorMsg', {msg: `Account ${payload.receiver} not found`, forever: false, report: true, cause: err}, {root: true})
+              return;
+            }
           }
+        } else if (payload.type === 'default') {
+          mappedChainAddress = new Address('default', LocalAddress.fromHexString(payload.receiver));
+        } else {
+          commit('setErrorMsg', {msg: `Unknown Address Type ${payload.type}`, forever: false, report:true, cause:err}, {root: true})
         }
+
         await state.dposUser.dappchainLoom.transferAsync(mappedChainAddress, weiAmount);
         commit('setSuccessMsg', {msg: `Success Transferring ${payload.amount} tokens to ${payload.receiver}`, forever: false}, {root: true})
       } catch(err) {
