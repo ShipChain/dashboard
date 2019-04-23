@@ -41,6 +41,11 @@ network config
 4: rinkeby
  */
 const clientNetwork = {
+  'shipchain-testnet-beta.network.shipchain.io': {
+    network: 'default',
+    websockt: 'wss://shipchain-testnet-beta.network.shipchain.io:46658/websocket',
+    queryws: 'wss://shipchain-testnet-beta.network.shipchain.io:46658/queryws'
+  },
   'hydra-testing.network.shipchain.io': {
     network: 'default',
     websockt: 'wss://hydra-testing.network.shipchain.io:46658/websocket',
@@ -64,7 +69,7 @@ function defaultNetworkId() {
   if (domain === 'local') {
     loomNetwork = 'local'
   } else {
-    loomNetwork = 'hydra-testing.network.shipchain.io'
+    loomNetwork = 'shipchain-testnet-beta.network.shipchain.io'
   }
   return loomNetwork;
 }
@@ -78,6 +83,7 @@ const getChainUrls = () => {
   let chainUrls;
   if (!chainUrlsJSON) {
     chainUrls = [
+      clientNetwork['shipchain-testnet-beta.network.shipchain.io'],
       clientNetwork['hydra-testing.network.shipchain.io'],
       clientNetwork['hydra-testing2.network.shipchain.io'],
       clientNetwork['local'],
