@@ -494,20 +494,21 @@ export default {
               let receiverMapping = await rootState.DPOS.mapper.getMappingAsync(receiverDefault);
               mappedChainAddress = receiverMapping.from;
             } catch (err) {
-              commit('setErrorMsg', {msg: `Account ${payload.receiver} not found`, forever: false, report: true, cause: err}, {root: true})
+              commit('setErrorMsg', {msg: `Account ${payload.receiver} not found`, forever: false, report: true, cause: err}, {root: true});
               return;
             }
           }
         } else if (payload.type === 'default') {
           mappedChainAddress = new Address('default', LocalAddress.fromHexString(payload.receiver));
         } else {
-          commit('setErrorMsg', {msg: `Unknown Address Type ${payload.type}`, forever: false, report:true, cause:err}, {root: true})
+          commit('setErrorMsg', {msg: `Unknown Address Type ${payload.type}`, forever: false, report:true}, {root: true});
+          return;
         }
 
         await state.dposUser.dappchainLoom.transferAsync(mappedChainAddress, weiAmount);
-        commit('setSuccessMsg', {msg: `Success Transferring ${payload.amount} tokens to ${payload.receiver}`, forever: false}, {root: true})
+        commit('setSuccessMsg', {msg: `Success Transferring ${payload.amount} tokens to ${payload.receiver}`, forever: false}, {root: true});
       } catch(err) {
-        commit('setErrorMsg', {msg: `Error Transferring ${payload.amount} tokens to ${payload.receiver}`, forever: false, report:true, cause:err}, {root: true})
+        commit('setErrorMsg', {msg: `Error Transferring ${payload.amount} tokens to ${payload.receiver}`, forever: false, report:true, cause:err}, {root: true});
       }      
     },
     async delegateAsync({ state, dispatch, commit }, payload) {

@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="transfer-ship-modal" ref="modalRef" ok-only hide-header centered>
+    <b-modal id="transfer-ship-modal" ref="modalRef" ok-only hide-header centered @hidden="resetTransferDetail">
         <b-container fluid>
             <div v-if="loading" class="loading-spinner-container">
                 <loading-spinner :showBackdrop="true"></loading-spinner>
@@ -13,9 +13,9 @@
                     <b-col sm="3"><label>Address</label></b-col>
                     <b-col sm="9">
                         <b-form-group label="Address Type">
-                            <b-form-radio-group inline v-model="transferDetail.type" >
-                                <b-form-radio value='eth'>Eth</b-form-radio>
-                                <b-form-radio value='default'>Sidechain</b-form-radio>
+                            <b-form-radio-group inline v-model="transferDetail.type" name="address-type" :state="transferDetail && transferDetail.receiver && isAddressTypeValid">
+                                <b-form-radio name="address-type" value='eth'>Eth</b-form-radio>
+                                <b-form-radio name="address-type" value='default'>Sidechain</b-form-radio>
                             </b-form-radio-group>
                             <b-form-input v-model="transferDetail.receiver" :state="transferDetail && transferDetail.receiver && isReceiverValid" type="text" ></b-form-input>
                         </b-form-group>
@@ -24,7 +24,7 @@
             </div>
         </b-container>
         <div slot="modal-footer" class="w-100">
-            <b-button v-if="!loading" style="width: 160px; float: right;" variant="primary" :disabled="!isAmountValid || !isReceiverValid" @click="transferShip">{{okTitle}}</b-button>
+            <b-button v-if="!loading" style="width: 160px; float: right;" variant="primary" :disabled="!isAmountValid || !isReceiverValid|| !isAddressTypeValid" @click="transferShip">{{okTitle}}</b-button>
         </div>
     </b-modal>
 </template>
@@ -72,7 +72,7 @@
         transferDetail = {
             amount: '',
             receiver: '',
-            type: 'eth',
+            type: '',
         };
 
         okTitle = "Transfer";
@@ -101,6 +101,16 @@
                 this.setError({msg: "Transfer failed", err});
                 this.loading = false;
             }
+        }
+
+        resetTransferDetail() {
+            this.transferDetail.amount = '';
+            this.transferDetail.receiver = '';
+            this.transferDetail.type = '';
+        }
+
+        get isAddressTypeValid(){
+            return this.transferDetail.type && this.transferDetail.type !== ''
         }
 
         get isAmountValid() {
