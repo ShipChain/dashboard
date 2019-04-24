@@ -1,4 +1,4 @@
-# Plasmachain Staking and Validator Dashboard
+# ShipChain Delegator and Validator Dashboard
 
 To run it:
 
