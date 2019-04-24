@@ -24,8 +24,8 @@
           <h5 class="highlight">
             {{userBalance.isLoading ? 'loading' : userBalance.mainnetBalance + " SHIP"}}
             <loom-icon :color="'#eb6733'"/>
-            <b-btn @click="request250kShip" :disabled="userBalance.isLoading || userBalance.claimedShip > 250000" variant="primary" >BETA ONLY: Request 250k beta SHIP</b-btn>
-            <b-btn @click="request5kShip"  :disabled="userBalance.isLoading || userBalance.claimedShip > 295000" variant="primary" >BETA ONLY: Request 5k beta SHIP</b-btn>
+            <b-btn @click="request250kShip" :disabled="userBalance.isLoading || userBalance.claimedShip > 650000" variant="primary" >BETA ONLY: Request 250k beta SHIP</b-btn>
+            <b-btn @click="request5kShip"  :disabled="userBalance.isLoading || userBalance.claimedShip > 895000" variant="primary" >BETA ONLY: Request 5k beta SHIP</b-btn>
           </h5>
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>                            
           <h5 class="highlight">
