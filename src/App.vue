@@ -62,7 +62,7 @@ main.container {
     align-items: center;
     h1 {
       flex: 1;
-      color: #5246d5;
+      color: #0c359f;
       font-size: 1.35em;
       text-align: center;
       margin: 16px -14px;

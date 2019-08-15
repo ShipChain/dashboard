@@ -323,7 +323,7 @@ h3 {
 }
 
 .border-primary {
-  border: 1px solid #007bff
+  border: 1px solid #0c359f
 }
 
 </style>

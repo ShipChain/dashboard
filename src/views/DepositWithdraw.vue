@@ -30,7 +30,7 @@
       </b-card-body>
       <b-list-group flush>
         <b-list-group-item v-for="symbol in filteredSymbols" :key="symbol">
-          <label class="symbol">{{symbol}}</label>
+          <label class="symbol">{{symbol === 'LOOM' ? 'SHIP' : symbol}}</label>
           <span
             class="balance"
           >{{plasma.coins[symbol].balance | tokenAmount(plasma.coins[symbol].decimals, 3)}}</span>
@@ -267,7 +267,7 @@ export default class DepositWithdraw extends Vue {
     align-items: center;
     h1 {
       flex: 1;
-      color: #5246d5;
+      color: #0c359f;
       font-size: 1.35em;
       text-align: center;
       margin: 16px -14px;

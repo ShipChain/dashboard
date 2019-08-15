@@ -47,7 +47,7 @@
               <div>{{ locktimeTiers[i] }}</div>
               <strong>{{ $t('components.modals.faucet_delegate_modal.bonuses') }}</strong>
               <div class="fee">{{ bonusTiers[i] }}</div>
-              <div class="spec">({{ calcReceiveAmount(i) }} LOOM)</div>
+              <div class="spec">({{ calcReceiveAmount(i) }} SHIP)</div>
             </label>
           </div>
         </b-col>

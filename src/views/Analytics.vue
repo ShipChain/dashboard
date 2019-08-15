@@ -122,7 +122,7 @@ export default class Analytics extends Vue {
           backgroundColor: [
             "rgba(3, 169, 244, 0.5)",
           ],
-          label: "Amount of LOOM staked",
+          label: "Amount of SHIP staked",
         }],
       },
       options: {

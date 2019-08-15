@@ -4,6 +4,14 @@
     "name": "Ship",
     "decimals": 18,
     "ethereum": "0xa14c1d4aceb983626c066ebb3d9437e68f888b3a",
-    "plasma": "0xe288d6eec7150D6a22FDE33F0AA2d81E06591C4d"
+    "plasma": "0xe288d6eec7150d6a22fde33f0aa2d81e06591c4d"
+  },
+  {
+    "symbol": "ETH",
+    "name": "Ether",
+    "decimals": 18,
+    "plasma": "0x0000000000000000000000000000000000000000",
+    "ethereum": "0x0000000000000000000000000000000000000000",
+    "binance": ""
   }
 ]

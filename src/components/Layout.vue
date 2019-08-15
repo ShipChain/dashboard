@@ -223,7 +223,7 @@ export default class Layout extends Vue {
 }
 
 .highlight {
-  color: #f0ad4e;
+  color: #eb6733;
 }
 
 @media (max-width: 576px) {

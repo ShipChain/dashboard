@@ -7,8 +7,8 @@
     @hide="resetModal"
   >
     <b-card>
-      <h6>{{ $t('components.modals.transfer_token_form_modal.token_type') }} {{ token }}</h6>
-      <h6>{{ $t('components.modals.transfer_token_form_modal.balance') }} {{ balance | tokenAmount(tokenDecimals)}} {{ token }}</h6>
+      <h6>{{ $t('components.modals.transfer_token_form_modal.token_type') }} {{ token === 'LOOM' ? 'SHIP' : token }}</h6>
+      <h6>{{ $t('components.modals.transfer_token_form_modal.balance') }} {{ balance | tokenAmount(tokenDecimals)}} {{ token === 'LOOM' ? 'SHIP' : token }}</h6>
       <div class="input-section">
         <i18n path="components.modals.transfer_token_form_modal.amount">
           <span place="amount"> {{ balance | tokenAmount(tokenDecimals)}} </span>
@@ -18,7 +18,7 @@
           :max="balance"
           :round="false"
           :decimals="tokenDecimals"
-          :symbol="token"
+          :symbol="token === 'LOOM' ? 'SHIP' : token"
           v-model="transferWeiAmount"
           @isError="onAmountError"
         />

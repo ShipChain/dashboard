@@ -5,14 +5,14 @@
     no-close-on-esc
     hide-header-close
     id="deposit-approval-success"
-    :title="$t('components.gateway.withdraw_form_modal.title', { token: token, chain: transferRequest.chain })"
+    :title="$t('components.gateway.withdraw_form_modal.title', { token: token === 'LOOM' ? 'SHIP' : token, chain: transferRequest.chain })"
   >
     <div v-if="visible && tokenInfo">
       <div v-if="fee.amount">
         <p>{{ $t('components.gateway.withdraw_form_modal.transfer_fee', { chain: transferRequest.chain }) }} {{fee.amount|tokenAmount(fee.decimals)}} {{fee.token}}</p>
       </div>
       <div>
-        <h6>{{ $t('components.gateway.withdraw_form_modal.balance') }} {{ balance | tokenAmount(tokenInfo.decimals)}} {{ token }}</h6>
+        <h6>{{ $t('components.gateway.withdraw_form_modal.balance') }} {{ balance | tokenAmount(tokenInfo.decimals)}} {{ token === 'LOOM' ? 'SHIP' : token }}</h6>
         <amount-input
           :min="min"
           :max="max"

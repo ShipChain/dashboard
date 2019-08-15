@@ -203,7 +203,7 @@ export default class FaucetSidebar extends Vue {
   opacity: 0.6;
 }
 .login-link {
-  color: #007bff;
+  color: #0c359f;
 }
 
 .router .nav-link {

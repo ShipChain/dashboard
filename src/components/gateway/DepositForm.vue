@@ -10,19 +10,19 @@
     no-close-on-backdrop
     hide-header-close
   >
-    <template slot="modal-title">{{ $t('components.gateway.deposit_form.title', {token: token, chain: transferRequest.chain}) }}</template>
+    <template slot="modal-title">{{ $t('components.gateway.deposit_form.title', {token: token === 'LOOM' ? 'SHIP' : token, chain: transferRequest.chain}) }}</template>
     <div v-if="!status">
       <form>
         <h6
           v-if="allowance !== ZERO"
-        >{{ $t('components.gateway.deposit_form.amount_approved') }} {{allowance | tokenAmount(state.plasma.coins[token].decimals)}} {{ token }}</h6>
-        <h6>{{ $t('components.gateway.deposit_form.balance') }} {{ userBalance | tokenAmount(state.plasma.coins[token].decimals)}} {{ token }}</h6>
+        >{{ $t('components.gateway.deposit_form.amount_approved') }} {{allowance | tokenAmount(state.plasma.coins[token].decimals)}} {{ token === 'LOOM' ? 'SHIP' : token }}</h6>
+        <h6>{{ $t('components.gateway.deposit_form.balance') }} {{ userBalance | tokenAmount(state.plasma.coins[token].decimals)}} {{ token === 'LOOM' ? 'SHIP' : token }}</h6>
         <amount-input
           :min="min"
           :max="userBalance"
           v-model="transferAmount"
           :round="false"
-          :symbol="token"
+          :symbol="token === 'LOOM' ? 'SHIP' : token"
           @isError="errorHandler"
         />
         <div class="error" v-for="e in amountErrors" :key="e">- {{e}}</div>

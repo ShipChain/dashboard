@@ -15,7 +15,7 @@
           </h6>
           <h6>
             {{ $t('views.validator_list.total_staked_amount') }}
-            <h5 class="highlight">{{totalStaked | tokenAmount(18,0)}} LOOM</h5>
+            <h5 class="highlight">{{totalStaked | tokenAmount(18,0)}} SHIP</h5>
           </h6>
         </b-card>
         <div class="content">
@@ -42,7 +42,7 @@
               </div>
               <div class="copy-wrapper">
                 <label>{{ $t('views.validator_list.stake') }}</label>
-                <strong>{{validator.totalStaked | tokenAmount(18,0)}} LOOM</strong>
+                <strong>{{validator.totalStaked | tokenAmount(18,0)}} SHIP</strong>
               </div>
             </b-card>
           </template>
@@ -198,7 +198,7 @@ tr {
 main.validators {
   // ther should be global class for page titles
   header > h1 {
-    color: #5246d5;
+    color: #0c359f;
     font-size: 1.35em;
     text-align: center;
     margin: 16px -14px;

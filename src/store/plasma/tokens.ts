@@ -257,7 +257,7 @@ export async function approve(
   const approvalAmount = weiAmount
   feedbackModule.setStep(
     i18n.t("feedback_msg.step.approving_spending",
-  { tokenAmount: formatTokenAmount(approvalAmount, token.decimals), symbol: payload.symbol})
+  { tokenAmount: formatTokenAmount(approvalAmount, token.decimals), symbol: payload.symbol === 'LOOM' ? 'SHIP' : payload.symbol})
   .toString())
   try {
     await adapter.approve(to, approvalAmount)

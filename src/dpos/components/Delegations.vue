@@ -11,10 +11,10 @@
           {{delegation.state | delegationState}}
         </dd>
         <dt>{{ $t('views.validator_detail.amount_delegated') }}</dt>
-        <dd>{{delegation.amount | tokenAmount}} LOOM</dd>
+        <dd>{{delegation.amount | tokenAmount}} SHIP</dd>
         <template v-if="delegation.updateAmount.gt(zero)">
           <dt>{{ $t('views.validator_detail.updated_amount') }}</dt>
-          <dd>{{delegation.updateAmount | tokenAmount}} LOOM</dd>
+          <dd>{{delegation.updateAmount | tokenAmount}} SHIP</dd>
         </template>
         <dt>{{ $t('views.validator_detail.timelock_tier') }}</dt>
         <dd>{{delegation.lockTimeTier | lockTimeTier}}</dd>

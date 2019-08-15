@@ -7,8 +7,8 @@
         <div class="container-fluid">
           <router-link to="/account" class="navbar-brand ml-3">
             <loom-icon width="18px" height="18px" :color="'#ffffff'"/>
-            <span class="px-1">Plasmachain</span>
-            <span class="beta-label">BETA</span>
+            <span class="px-1">ShipChain Network</span>
+            <span class="beta-label">Gamma</span>
           </router-link>
 <!--          <form class="form-inline">-->
 <!--            <LangSwitcher/>-->
@@ -216,7 +216,7 @@ export default class FaucetHeader extends Vue {
 </script>
 <style lang="scss">
 .navbar {
-  background: #5756e6;
+  background: #eb6733;
   .navbar-brand {
     color: #ffffff;
   }
@@ -242,7 +242,7 @@ export default class FaucetHeader extends Vue {
 }
 
 .refresh-icon {
-  color: #007bff;
+  color: #0c359f;
   &:hover {
     transform: rotate(360deg);
     transition: all 0.5s;

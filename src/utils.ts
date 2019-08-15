@@ -7,6 +7,7 @@ import productionTokens from "@/assets/tokens/production.tokens.json"
 import extDevTokens from "@/assets/tokens/ext-dev.tokens.json"
 import stageTokens from "@/assets/tokens/stage.tokens.json"
 import devTokens from "@/assets/tokens/dev.tokens.json"
+import gammaTokens from "@/assets/tokens/gamma.tokens.json"
 
 export const ZERO = new BN(0)
 
@@ -120,6 +121,7 @@ export function getWalletFromLocalStorage(env: string) {
     "ext-dev": extDevTokens,
     "stage": stageTokens,
     "dev": devTokens,
+    "gamma": gammaTokens,
   }
   let wallets = JSON.parse(localStorage.getItem("wallets")!) // Get wallet from localStorage
 

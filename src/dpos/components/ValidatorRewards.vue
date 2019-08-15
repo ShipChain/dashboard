@@ -32,7 +32,7 @@
       <b-list-group-item variant="secondary">
         <div class="d-flex w-100 justify-content-between">
           <h6>{{ $t('views.rewards.total') }}</h6>
-          <span>{{rewardsUnclaimed | tokenAmount}} LOOM</span>
+          <span>{{rewardsUnclaimed | tokenAmount}} SHIP</span>
         </div>
       </b-list-group-item>
     </b-list-group>

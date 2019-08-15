@@ -6,7 +6,7 @@
       </div>
       <div v-else-if="hasRewardsUnclaimed">
         <h6>{{ $t('views.rewards.unclaimed_rewards') }}</h6>
-        <h5 class="highlight" data-cy="unclaimed-rewards">{{rewardsUnclaimed | tokenAmount}} LOOM</h5>
+        <h5 class="highlight" data-cy="unclaimed-rewards">{{rewardsUnclaimed | tokenAmount}} SHIP</h5>
       </div>
       <div
         v-else-if="hasRewardsBeingClaimed"
@@ -27,6 +27,7 @@
     <b-button
       id="claim-rewards"
       class="px-5 py-2"
+      style="background-color: #0c359f; border-color: #0c359f;"
       variant="primary"
       @click="claimRewards"
       :disabled="hasRewardsUnclaimed === false"

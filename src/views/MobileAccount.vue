@@ -29,10 +29,10 @@
           <h6>{{ $t('views.my_account.mainnet') }}</h6>
           <div>
             <h5 class="highlight" data-cy="ethereum-loom-balance">
-              {{state.ethereum.coins.LOOM.balance | tokenAmount}} LOOM
+              {{state.ethereum.coins.LOOM.balance | tokenAmount}} SHIP
               <loom-icon
                 v-if="!state.ethereum.coins.LOOM.loading"
-                :color="'#f0ad4e'"
+                :color="'#eb6733'"
                 width="20px"
                 height="20px"
               />
@@ -44,10 +44,10 @@
           <h6>{{ $t('views.my_account.plasmachain') }}</h6>
           <div>
             <h5 class="highlight" data-cy="plasma-loom-balance">
-              {{state.plasma.coins.LOOM.balance | tokenAmount}} LOOM
+              {{state.plasma.coins.LOOM.balance | tokenAmount}} SHIP
               <loom-icon
                 v-if="!state.plasma.coins.LOOM.loading"
-                :color="'#f0ad4e'"
+                :color="'#eb6733'"
                 width="20px"
                 height="20px"
               />

@@ -3,7 +3,7 @@
     <section v-if="status === 'default'">
       <b-container fluid>
         <div class="lead">
-          <p>{{$t('components.gateway.confirm_withdrawal_modal.confirm_withdrawl', {chain,amount, token: this.symbol})}}</p>
+          <p>{{$t('components.gateway.confirm_withdrawal_modal.confirm_withdrawl', {chain,amount, token: this.symbol === 'LOOM' ? 'SHIP' : this.symbol})}}</p>
         </div>
       </b-container>
     </section>
