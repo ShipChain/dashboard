@@ -10,9 +10,9 @@
             <span class="px-1">Plasmachain</span>
             <span class="beta-label">BETA</span>
           </router-link>
-          <form class="form-inline">
-            <LangSwitcher/>
-          </form>
+<!--          <form class="form-inline">-->
+<!--            <LangSwitcher/>-->
+<!--          </form>-->
         </div>
       </nav>
     </div>

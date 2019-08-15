@@ -104,7 +104,8 @@ export async function init(
     mapping.from,
   )
   // todo: add binance loom adapter
-  const binanceGateway = await BinanceTransferGateway.createAsync(client, mapping.from)
+  // const binanceGateway = await BinanceTransferGateway.createAsync(client, mapping.from)
+  const binanceGateway = null
 
   instance = new PlasmaGateways(ethereumMainGateway, ethereumLoomGateway, binanceGateway, plasmaWeb3, mapping)
 
@@ -123,7 +124,7 @@ class PlasmaGateways {
   constructor(
     readonly ethereumMainGateway: TransferGateway,
     readonly ethereumLoomGateway: LoomCoinTransferGateway,
-    readonly binanceGateway: BinanceTransferGateway,
+    readonly binanceGateway: BinanceTransferGateway | any,
     readonly web3: Web3,
     readonly mapping: IAddressMapping,
   ) { }

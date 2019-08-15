@@ -4,12 +4,12 @@
       <h6 class="rmv-spacing">{{ $t('components.faucet_sidebar.staking') }}</h6>
     </header>
     <b-nav class="staking" vertical>
-      <b-nav-item
-        v-if="state.env !== 'production'"
-        to="/analytics"
-        class="router"
-        exact-active-class="router-active"
-      >{{ $t('components.faucet_sidebar.analytics') }}</b-nav-item>
+<!--      <b-nav-item-->
+<!--        v-if="state.env !== 'production'"-->
+<!--        to="/analytics"-->
+<!--        class="router"-->
+<!--        exact-active-class="router-active"-->
+<!--      >{{ $t('components.faucet_sidebar.analytics') }}</b-nav-item>-->
       <b-nav-item
         v-for="(menu, index) in menus.staking"
         :key="index"
@@ -101,26 +101,26 @@ export default class FaucetSidebar extends Vue {
           to: "/wallet",
           text: "components.faucet_sidebar.deposit_withdraw",
         },
-        {
-          to: "/game-assets",
-          text: "components.faucet_sidebar.game_assets",
-          name: "transfer-asset",
-        },
+        // {
+        //   to: "/game-assets",
+        //   text: "components.faucet_sidebar.game_assets",
+        //   name: "transfer-asset",
+        // },
       ],
       dev: [
         {
           href: this.state.plasma.blockExplorer,
           text: "components.faucet_sidebar.block_explorer",
         },
-        {
-          to: "/add-key",
-          text: "components.faucet_sidebar.deploy_to_plasmachain",
-          name: "dev-deploy",
-        },
-        {
-          to: "/transfer-gateway",
-          text: "components.faucet_sidebar.transfer_gateway",
-        },
+        // {
+        //   to: "/add-key",
+        //   text: "components.faucet_sidebar.deploy_to_plasmachain",
+        //   name: "dev-deploy",
+        // },
+        // {
+        //   to: "/transfer-gateway",
+        //   text: "components.faucet_sidebar.transfer_gateway",
+        // },
         {
           to: "/validator-management",
           text: "components.faucet_sidebar.validator_management",
@@ -135,10 +135,10 @@ export default class FaucetSidebar extends Vue {
           to: "/faq",
           text: "components.faucet_sidebar.faq",
         },
-        {
-          to: "/feedback",
-          text: "components.faucet_sidebar.feedback_form",
-        },
+        // {
+        //   to: "/feedback",
+        //   text: "components.faucet_sidebar.feedback_form",
+        // },
       ],
     }
   }

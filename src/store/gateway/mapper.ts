@@ -137,12 +137,12 @@ export async function checkRelentlessUser(context: ActionContext, address: strin
 
   // https://dev-auth.loom.games always return 'valid_address' as true no matter what address is
   // So url will be change later
-  const checkURL = context.state.checkMarketplaceURL.replace("{address}", address)
-  await axios.get(checkURL).then((response) => {
-    context.state.maybeRelentlessUser = !response.data.valid_address
-    if (!context.state.maybeRelentlessUser) {
+  // const checkURL = context.state.checkMarketplaceURL.replace("{address}", address)
+  // await axios.get(checkURL).then((response) => {
+  //   context.state.maybeRelentlessUser = !response.data.valid_address
+  //   if (!context.state.maybeRelentlessUser) {
       context.state.requireMapping = true
-    }
-    log("maybeRelentlessUser", context.state.maybeRelentlessUser)
-  })
+    // }
+    // log("maybeRelentlessUser", context.state.maybeRelentlessUser)
+  // })
 }

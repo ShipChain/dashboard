@@ -62,9 +62,9 @@
           </b-button-group>
         </b-list-group-item>
       </b-list-group>
-      <b-card-footer>
-        <b-button class="button" variant="primary" @click="requestAddToken()">{{ $t('views.deposit_withdraw.add_token') }}</b-button>
-      </b-card-footer>
+<!--      <b-card-footer>-->
+<!--        <b-button class="button" variant="primary" @click="requestAddToken()">{{ $t('views.deposit_withdraw.add_token') }}</b-button>-->
+<!--      </b-card-footer>-->
     </b-card>
     <transfer-tokens-form-modal @refreshTokenList="filterTokens" :token="selectedToken" />
     <add-token-modal @refreshTokenList="filterTokens" />

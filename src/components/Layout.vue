@@ -1,6 +1,6 @@
 <template>
   <div id="layout" class="d-flex flex-column">
-    <div v-if="networkId && networkId !== 'plasma'" style="background: #FFC107; padding: 0 16px;">
+    <div v-if="networkId && networkId !== 'gamma'" style="background: #FFC107; padding: 0 16px;">
       <span>{{ $t('components.layout.network') }} {{networkId}}</span>
     </div>
     <div

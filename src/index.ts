@@ -26,11 +26,7 @@ import { store, dashboardStore } from "./store"
 import { initFilters } from "./filters"
 import { ethereumModule } from "./store/ethereum"
 import { isMobile, detectedWallet } from "./utils"
-import production from "./config/production"
-import extDev from "./config/ext-dev"
-import stage from "./config/stage"
-import dev from "./config/dev"
-import local from "./config/local"
+import gamma from "./config/gamma"
 
 // tslint:disable-next-line: no-var-requires
 require("./assets/scss/main.scss")
@@ -55,15 +51,16 @@ export default new Vue({
   async beforeMount() {
 
     // set available envs
-    if (window.location.host === "dashboard.dappchains.com" || window.location.host === "wallet.loomx.io") {
-      dashboardStore.setEnvs([production])
-      await dashboardStore.setEnv(production)
-    } else {
+    // if (window.location.host === "dashboard.dappchains.com" || window.location.host === "wallet.loomx.io") {
+    //   dashboardStore.setEnvs([production])
+    //   await dashboardStore.setEnv(production)
+    // } else {
       console.log("multiple envs")
-      dashboardStore.setEnvs([production, extDev, stage, dev])
+      // dashboardStore.setEnvs([gamma, production, extDev, stage, dev])
+      dashboardStore.setEnvs([gamma])
       // default
-      await dashboardStore.setEnv(stage)
-    }
+      await dashboardStore.setEnv(gamma)
+    // }
 
     // do not auto connect if mobile or more than one environement config is present
     if (!isMobile() ||
@@ -87,7 +84,7 @@ export default new Vue({
 
 // todo should store key/project elsewhere (vault?)
 Sentry.init({
-  dsn: process.env.NODE_ENV === "production" ? "https://7e893bd9be0942a0977eb2120b7722d4@sentry.io/1394913" : undefined,
+  dsn: undefined,
   environment: window.location.hostname,
   integrations: [new SentryIntegrations.Vue({
     Vue,

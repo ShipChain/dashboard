@@ -74,19 +74,19 @@ const router = new VueRouter({
       component: DepositWithdraw,
       beforeEnter: requireAccount,
     },
-    {
-      path: "/add-key",
-      name: "addKey",
-      component: AddKey,
-      beforeEnter: requireAccount,
-    },
+    // {
+    //   path: "/add-key",
+    //   name: "addKey",
+    //   component: AddKey,
+    //   beforeEnter: requireAccount,
+    // },
 
-    {
-      path: "/game-assets",
-      name: "gameAssets",
-      component: GameAssets,
-      beforeEnter: requireAccount,
-    },
+    // {
+    //   path: "/game-assets",
+    //   name: "gameAssets",
+    //   component: GameAssets,
+    //   beforeEnter: requireAccount,
+    // },
     {
       path: "/validators",
       name: "validators",
@@ -102,34 +102,34 @@ const router = new VueRouter({
       name: "blockexplorer",
       component: BlockExplorer,
     },
-    {
-      path: "/analytics",
-      name: "analytics",
-      component: Analytics,
-    },
-    {
-      path: "/feedback",
-      name: "feedback",
-      component: FeedbackForm,
-      beforeEnter: requireAccount,
-    },
+    // {
+    //   path: "/analytics",
+    //   name: "analytics",
+    //   component: Analytics,
+    // },
+    // {
+    //   path: "/feedback",
+    //   name: "feedback",
+    //   component: FeedbackForm,
+    //   beforeEnter: requireAccount,
+    // },
     {
       path: "/validator-management",
       name: "validatorManagement",
       component: ValidatorManagement,
       beforeEnter: requireAccount,
     },
-    {
-      path: "/transfer-gateway",
-      name: "transferGateway",
-      component: TransferGateway,
-    },
-    {
-      path: "/analytics",
-      name: "analytics",
-      component: Analytics,
-      beforeEnter: requireAccount,
-    },
+    // {
+    //   path: "/transfer-gateway",
+    //   name: "transferGateway",
+    //   component: TransferGateway,
+    // },
+    // {
+    //   path: "/analytics",
+    //   name: "analytics",
+    //   component: Analytics,
+    //   beforeEnter: requireAccount,
+    // },
     {
       path: "/",
       redirect: "/login",

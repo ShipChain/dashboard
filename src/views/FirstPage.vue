@@ -22,11 +22,7 @@
                 <loom-icon width="56px" height="56px" :color="'#6eccd8'" />
               </div>
               <div class="linking-div-choice">
-                <b-button
-                  block
-                  variant="outline-primary"
-                  :href="loomGamesUrl"
-                >{{ $t('views.first_page.link_my_account') }}</b-button>
+                <b-button block variant="outline-primary" :href="loomGamesUrl">{{ $t('views.first_page.link_my_account') }}</b-button>
               </div>
             </div>
             <div slot="modal-footer" class="w-100" style="text-align: center;">
@@ -38,7 +34,9 @@
               >{{ $t('views.first_page.not_from_relentless_marketplace') }}</b-button>
               <div class="reconsider" v-show="reconsider">
                 <h5>{{ $t('views.first_page.you_sure') }}</h5>
-                <p style="color: red;">{{ $t('views.first_page.warn_note') }}</p>
+                <p
+                  style="color: red;"
+                >{{ $t('views.first_page.warn_note') }}</p>
                 <b-button
                   variant="outline-dark"
                   @click="maybeRelentlessUser = false"
@@ -67,19 +65,19 @@
                       </div>
                     </b-card>
                   </div>
-                  <div v-if="$store.state.env !== 'production'" class="col-sm-12 mb-3">
-                    <b-card
-                      id="test-wallet-button"
-                      class="wallet-selection-card text-center"
-                      :class="{'wallet-selection-card disabled' : !metamaskInstalled}"
-                      @click="setWallet('test_wallet')"
-                    >
-                      <div>
-                        <img src="../assets/metamask_logo.png" />
-                        <span>Metamask (Test Wallet)</span>
-                      </div>
-                    </b-card>
-                  </div>
+<!--                  <div v-if="$store.state.env !== 'production'" class="col-sm-12 mb-3">-->
+<!--                    <b-card-->
+<!--                      id="test-wallet-button"-->
+<!--                      class="wallet-selection-card text-center"-->
+<!--                      :class="{'wallet-selection-card disabled' : !metamaskInstalled}"-->
+<!--                      @click="setWallet('test_wallet')"-->
+<!--                    >-->
+<!--                      <div>-->
+<!--                        <img src="../assets/metamask_logo.png" />-->
+<!--                        <span>Metamask (Test Wallet)</span>-->
+<!--                      </div>-->
+<!--                    </b-card>-->
+<!--                  </div>-->
                   <div class="col-sm-12">
                     <b-card
                       id="ledger-button"
@@ -105,18 +103,18 @@
                       </div>
                     </b-card>
                   </div>
-                  <div class="col-sm-12">
-                    <b-card
-                      id="ledger-button"
-                      class="wallet-selection-card text-center mb-3"
-                      @click="setWallet('ledger')"
-                    >
-                      <div id="ledger-card">
-                        <img src="../assets/ledger_logo.svg" />
-                        <span>{{ $t('views.first_page.wallets.ledger_legacy') }}</span>
-                      </div>
-                    </b-card>
-                  </div>
+<!--                  <div class="col-sm-12">-->
+<!--                    <b-card-->
+<!--                      id="ledger-button"-->
+<!--                      class="wallet-selection-card text-center mb-3"-->
+<!--                      @click="setWallet('ledger')"-->
+<!--                    >-->
+<!--                      <div id="ledger-card">-->
+<!--                        <img src="../assets/ledger_logo.svg" />-->
+<!--                        <span>{{ $t('views.first_page.wallets.ledger_legacy') }}</span>-->
+<!--                      </div>-->
+<!--                    </b-card>-->
+<!--                  </div>-->
                   <div class="col-sm-12 mb-3" v-if="!$store.state.disabled.includes('portis')">
                     <b-card
                       id="portis-button"
@@ -141,52 +139,52 @@
                       </div>
                     </b-card>
                   </div>
-                  <div class="col-sm-12 mb-3">
-                    <b-card
-                      id="explore-button"
-                      class="wallet-selection-card text-center"
-                      @click="setWallet('walletconnect')"
-                    >
-                      <div>
-                        <span>{{ $t('views.first_page.wallets.walletconnect') }}</span>
-                      </div>
-                    </b-card>
-                  </div>
-                  <div class="col-sm-12">
-                    <b-card
-                      id="explore-button"
-                      class="wallet-selection-card text-center"
-                      @click="addressModalShow = !addressModalShow"
-                    >
-                      <div>
-                        <fa icon="search" class="search-icon" />
-                        <span>{{ $t('views.first_page.wallets.explore') }}</span>
-                      </div>
-                    </b-card>
-                  </div>
+<!--                  <div class="col-sm-12 mb-3">-->
+<!--                    <b-card-->
+<!--                      id="explore-button"-->
+<!--                      class="wallet-selection-card text-center"-->
+<!--                      @click="setWallet('walletconnect')"-->
+<!--                    >-->
+<!--                      <div>-->
+<!--                        <span>{{ $t('views.first_page.wallets.walletconnect') }}</span>-->
+<!--                      </div>-->
+<!--                    </b-card>-->
+<!--                  </div>-->
+<!--&lt;!&ndash;                  <div class="col-sm-12">&ndash;&gt;-->
+<!--                    <b-card-->
+<!--                      id="explore-button"-->
+<!--                      class="wallet-selection-card text-center"-->
+<!--                      @click="addressModalShow = !addressModalShow"-->
+<!--                    >-->
+<!--                      <div>-->
+<!--                        <fa icon="search" class="search-icon" />-->
+<!--                        <span>{{ $t('views.first_page.wallets.explore') }}</span>-->
+<!--                      </div>-->
+<!--                    </b-card>-->
+<!--                  </div>-->
                 </div>
               </b-card-body>
             </b-card>
-            <div class="d-none d-xl-block">
-              <b-card id="announcement" v-if="showAnnounce">
-                <b-card-title>Ad here</b-card-title>
-                <b-card-body>
-                  <p>Content here</p>
-                  <b-button>Click here</b-button>
-                </b-card-body>
-              </b-card>
-            </div>
+<!--            <div class="d-none d-xl-block">-->
+<!--              <b-card id="announcement" v-if="showAnnounce">-->
+<!--                <b-card-title>Ad here</b-card-title>-->
+<!--                <b-card-body>-->
+<!--                  <p>Content here</p>-->
+<!--                  <b-button>Click here</b-button>-->
+<!--                </b-card-body>-->
+<!--              </b-card>-->
+<!--            </div>-->
           </b-row>
 
-          <div class="d-xl-none" v-if="showAnnounce">
-            <b-card id="announcement-mobile">
-              <b-card-title>Ad here</b-card-title>
-              <b-card-body>
-                <p>Content here</p>
-                <b-button>Click here</b-button>
-              </b-card-body>
-            </b-card>
-          </div>
+<!--          <div class="d-xl-none" v-if="showAnnounce">-->
+<!--            <b-card id="announcement-mobile">-->
+<!--              <b-card-title>Ad here</b-card-title>-->
+<!--              <b-card-body>-->
+<!--                <p>Content here</p>-->
+<!--                <b-button>Click here</b-button>-->
+<!--              </b-card-body>-->
+<!--            </b-card>-->
+<!--          </div>-->
 
           <b-card v-if="!metamaskInstalled" class="metamask-suggest">
             <b-row>
@@ -498,7 +496,7 @@ export default class FirstPage extends Vue {
   }
 }
 
-.center-content { 
+.center-content {
   margin: 24px auto;
 }
 
