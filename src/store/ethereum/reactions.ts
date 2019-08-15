@@ -21,6 +21,8 @@ export function ethereumReactions(store: Store<DashboardState>) {
     ethereumModule.pollLastBlockNumber()
     ethereumModule.initERC20("LOOM")
     ethereumModule.refreshBalance("ETH")
+    ethereumModule.refreshClaimedShip()
+    ethereumModule.getMaxShipAllowance()
 
   }
 

@@ -8,6 +8,7 @@ import { Transfer } from "@/types"
 import BN from "bn.js"
 import debug from "debug"
 import ERC20ABI from "loom-js/dist/mainnet-contracts/ERC20.json"
+import ERC20FaucetJSON from "@/contracts/ERC20Faucet.json"
 import { BareActionContext, getStoreBuilder } from "vuex-typex"
 import Web3 from "web3"
 import {
@@ -67,6 +68,8 @@ const initialState: EthereumState = {
     ETH: ZERO,
     LOOM: ZERO,
   },
+  claimedShip: ZERO,
+  maxShipAllowance: ZERO,
   // not used
   LOOM: {
     contract: null,
@@ -123,6 +126,10 @@ export const ethereumModule = {
   setUserData: builder.commit(setUserData),
   initUserData: builder.commit(initUserData),
   removeUserData: builder.commit(deleteUserData),
+
+  getMaxShipAllowance: builder.dispatch(getMaxShipAllowance),
+  refreshClaimedShip: builder.dispatch(refreshClaimedShip),
+  requestShip: builder.dispatch(requestShip),
 
   refreshBalance: builder.dispatch(refreshBalance),
   approve: builder.dispatch(approve),
@@ -256,6 +263,46 @@ export async function refreshBalance(context: ActionContext, symbol: string) {
         coinState.loading = false
       })
   )
+}
+
+/**
+ * Refresh number of claimed ShipTokens on Sidechain
+ * ---=== BETA FUNCTIONALITY ONLY ===---
+ * @param symbol
+ */
+export async function refreshClaimedShip(context: ActionContext) {
+  try {
+    const faucet = new web3.eth.Contract(ERC20FaucetJSON.abi, ERC20FaucetJSON.networks.default.address)
+    const claimed = await faucet.methods.claimedTokens(context.state.address).call()
+    return context.state.claimedShip = new BN(web3.utils.fromWei(claimed, "ether"))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+/**
+ *
+ */
+export async function requestShip(context: ActionContext, weiAmount: BN) {
+  try {
+    const faucet = new web3.eth.Contract(ERC20FaucetJSON.abi, ERC20FaucetJSON.networks.default.address)
+    await faucet.methods.getTokens(weiAmount).send({from: context.state.address})
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+/**
+ *
+ */
+export async function getMaxShipAllowance(context: ActionContext) {
+  try {
+    const faucet = new web3.eth.Contract(ERC20FaucetJSON.abi, ERC20FaucetJSON.networks.default.address)
+    const maxShipAllowance = await faucet.methods.maxAllowanceInclusive().call()
+    return context.state.maxShipAllowance = new BN(web3.utils.fromWei(maxShipAllowance, "ether"))
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 /**

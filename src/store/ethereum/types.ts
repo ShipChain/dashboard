@@ -31,6 +31,8 @@ export interface EthereumState extends EthereumConfig {
   balances: {
     [erc20Symbol: string]: BN,
   }
+  claimedShip: BN
+  maxShipAllowance: BN
   LOOM: {
     contract: ERC20 | null
     balance: BN

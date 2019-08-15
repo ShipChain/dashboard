@@ -1,6 +1,47 @@
 <template>
   <div id="mobile-account">
     <account-info />
+    <b-card :title="$t('views.my_account.balance')" class="mb-4 mt-4" no-body>
+      <b-card-header class="custom-card-header d-flex justify-content-between">
+        <h4># TESTNET FUNCTIONALITY ONLY #</h4>
+      </b-card-header>
+      <b-card-body>
+        <div class="mb-2">
+          <h5 class="highlight">
+            {{state.ethereum.claimedShip}} Claimed
+            <loom-icon
+                    v-if="!state.ethereum.coins.LOOM.loading"
+                    :color="'#eb6733'"
+                    width="20px"
+                    height="20px"
+            />
+          </h5>
+        </div>
+        <div class="mb-2">
+          <b-btn
+                  @click="request250kShip"
+                  :disabled="state.ethereum.claimedShip > state.ethereum.maxShipAllowance - 250000"
+                  variant="primary"
+                  class="px-5 py-2"
+                  style="background-color: #0c359f; border-color: #0c359f;"
+          >
+            Request 250k SHIP
+          </b-btn>
+        </div>
+        <div>
+          <b-btn
+                  @click="request5kShip"
+                  :disabled="state.ethereum.claimedShip > state.ethereum.maxShipAllowance - 5000"
+                  variant="primary"
+                  class="px-5 py-2"
+                  style="background-color: #0c359f; border-color: #0c359f;"
+          >
+            Request 5k SHIP
+          </b-btn>
+        </div>
+      </b-card-body>
+    </b-card>
+
     <b-card :title="$t('views.my_account.balance')" class="mb-4" no-body>
       <b-card-header class="custom-card-header d-flex justify-content-between">
         <h4>{{ $t('views.my_account.balance') }}</h4>
@@ -146,8 +187,17 @@ export default class MobileAccount extends Vue {
   }
 
   refresh() {
+    ethereumModule.refreshClaimedShip()
     ethereumModule.refreshBalance("LOOM")
     plasmaModule.refreshBalance("LOOM")
+  }
+
+  request5kShip() {
+    ethereumModule.requestShip(ethereumModule.web3.utils.toWei("5000", "ether"))
+  }
+
+  request250kShip() {
+    ethereumModule.requestShip(ethereumModule.web3.utils.toWei("250000", "ether"))
   }
 
   mounted() {
