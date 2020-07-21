@@ -113,18 +113,14 @@
                 <input type="radio" v-model="tierSelected" :value="tier">
                 <strong>{{ $t('views.add_key.tier') }} {{tier.tierId +1}}</strong>
                 <div class="spec">{{ $t('components.modals.faucet_delegate_modal.one_year') }}</div>
-                <div class="fee">{{tier.fee | tokenAmount}} LOOM</div>
-                <div class="fee" style="border: 11px solid;border-radius: 12px;border-width: 0px 2px;width: 95px;margin: 0 auto;">
-                  <span style="text-decoration: line-through;display: block;">$499</span>
-                  <big style="font-weight:bold">$99</big>
-                </div>
-                <div class="spec" style="color:red; text-transform:uppercase"><strong>{{ $t('views.add_key.limited_offer') }}</strong></div>
+                <div class="fee">{{tier.fee | tokenAmount}} SHIP</div>
+                <!-- <div class="spec" style="color:red; text-transform:uppercase"><strong>{{ $t('views.add_key.limited_offer') }}</strong></div> -->
       
               </label>
-              <label class="radio tier disabled" v-for="i in [1,2,3]" :key="i">
+              <!-- <label class="radio tier disabled" v-for="i in [1,2,3]" :key="i">
                 <input type="radio" disabled v-model="tierSelected" :value="-1">
                 <div class="spec">{{ $t('views.add_key.coming_soon') }}</div>
-              </label>
+              </label> -->
             </div>
           </b-form-group>
           <div class="balance">

@@ -74,12 +74,12 @@ const router = new VueRouter({
       component: DepositWithdraw,
       beforeEnter: requireAccount,
     },
-    // {
-    //   path: "/add-key",
-    //   name: "addKey",
-    //   component: AddKey,
-    //   beforeEnter: requireAccount,
-    // },
+    {
+      path: "/add-key",
+      name: "addKey",
+      component: AddKey,
+      beforeEnter: requireAccount,
+    },
 
     // {
     //   path: "/game-assets",

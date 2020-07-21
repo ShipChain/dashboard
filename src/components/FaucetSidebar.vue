@@ -112,11 +112,11 @@ export default class FaucetSidebar extends Vue {
           href: this.state.plasma.blockExplorer,
           text: "components.faucet_sidebar.block_explorer",
         },
-        // {
-        //   to: "/add-key",
-        //   text: "components.faucet_sidebar.deploy_to_plasmachain",
-        //   name: "dev-deploy",
-        // },
+        {
+          to: "/add-key",
+          text: "components.faucet_sidebar.deploy_to_plasmachain",
+          name: "dev-deploy",
+        },
         // {
         //   to: "/transfer-gateway",
         //   text: "components.faucet_sidebar.transfer_gateway",
