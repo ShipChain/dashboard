@@ -31,6 +31,7 @@ export interface EthereumState extends EthereumConfig {
   balances: {
     [erc20Symbol: string]: BN,
   }
+  faucetEnabled: boolean
   claimedShip: BN
   maxShipAllowance: BN
   LOOM: {

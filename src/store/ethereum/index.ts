@@ -68,6 +68,7 @@ const initialState: EthereumState = {
     ETH: ZERO,
     LOOM: ZERO,
   },
+  faucetEnabled: false,
   claimedShip: ZERO,
   maxShipAllowance: ZERO,
   // not used

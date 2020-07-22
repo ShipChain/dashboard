@@ -1,7 +1,7 @@
 <template>
   <div id="mobile-account">
-    <account-info />
-    <b-card :title="$t('views.my_account.balance')" class="mb-4 mt-4" no-body>
+    <account-info class="mb-4"/>
+    <b-card v-if="state.ethereum.faucetEnabled" :title="$t('views.my_account.balance')" class="mb-4" no-body>
       <b-card-header class="custom-card-header d-flex justify-content-between">
         <h4># TESTNET FUNCTIONALITY ONLY #</h4>
       </b-card-header>
