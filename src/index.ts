@@ -26,7 +26,7 @@ import { store, dashboardStore } from "./store"
 import { initFilters } from "./filters"
 import { ethereumModule } from "./store/ethereum"
 import { isMobile, detectedWallet } from "./utils"
-import gamma from "./config/gamma"
+import production from "./config/production"
 
 // tslint:disable-next-line: no-var-requires
 require("./assets/scss/main.scss")
@@ -57,9 +57,9 @@ export default new Vue({
     // } else {
       console.log("multiple envs")
       // dashboardStore.setEnvs([gamma, production, extDev, stage, dev])
-      dashboardStore.setEnvs([gamma])
+      dashboardStore.setEnvs([production])
       // default
-      await dashboardStore.setEnv(gamma)
+      await dashboardStore.setEnv(production)
     // }
 
     // do not auto connect if mobile or more than one environement config is present

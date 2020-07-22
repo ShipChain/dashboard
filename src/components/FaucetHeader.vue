@@ -8,7 +8,7 @@
           <router-link to="/account" class="navbar-brand ml-3">
             <loom-icon width="18px" height="18px" :color="'#ffffff'"/>
             <span class="px-1">ShipChain Network</span>
-            <span class="beta-label">Gamma</span>
+            <!-- <span class="beta-label">Gamma</span> -->
           </router-link>
 <!--          <form class="form-inline">-->
 <!--            <LangSwitcher/>-->

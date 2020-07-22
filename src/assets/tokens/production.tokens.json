@@ -1,10 +1,10 @@
 [
   {
     "symbol": "LOOM",
-    "name": "Loom",
+    "name": "Ship",
     "decimals": 18,
     "plasma": "0xe288d6eec7150d6a22fde33f0aa2d81e06591c4d",
-    "ethereum": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0"
+    "ethereum": "0xa14c1d4aceb983626c066ebb3d9437e68f888b3a"
   },
   {
     "symbol": "ETH",

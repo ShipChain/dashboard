@@ -1,8 +1,8 @@
 <template>
   <div id="layout" class="d-flex flex-column">
-    <div v-if="networkId && networkId !== 'gamma'" style="background: #FFC107; padding: 0 16px;">
+    <!-- <div v-if="networkId && networkId !== 'gamma'" style="background: #FFC107; padding: 0 16px;">
       <span>{{ $t('components.layout.network') }} {{networkId}}</span>
-    </div>
+    </div> -->
     <div
       v-if="metamaskNetwork && (metamaskNetwork != s.ethereum.networkId)"
       style="background: #FF9800;padding: 16px 16px;"
