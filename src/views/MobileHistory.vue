@@ -34,7 +34,7 @@
               <h5 class="type">{{ $t( "events." + event.type) }}</h5>
               <ul>
                 <li class="block">{{ $t('components.history_event.block_no') }} {{event.blockNumber}}</li>
-                <li class="amount">{{event.amount | tokenAmount}} {{event.token}}</li>
+                <li class="amount">{{event.amount | tokenAmount}} {{event.token === "LOOM" ? "SHIP" : event.token}}</li>
               </ul>
               <!--
           <a class="transaction-hash" href target="_blank">{{event.transactionHash}}</a>

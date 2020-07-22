@@ -8,7 +8,7 @@
       class="my-2"
     ></b-form-input>
     <p v-if="isBlacklisted" style :key="value" class="error">{{ $t('messages.input_address_cant_transfer_own') }}</p>
-    <p v-else-if="!isValidAddress" style :key="value" class="error">{{ $t('messages.input_address_invalid_chain', { chain: chain }) }}</p>
+    <p v-else-if="!isValidAddress" style :key="value" class="error">{{ $t('messages.input_address_invalid_chain', { chain: chain === "loom" ? "ship" : chain }) }}</p>
   </div>
 </template>
 

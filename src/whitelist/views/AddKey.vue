@@ -94,7 +94,7 @@
               id="deployer-address-input"
               v-model="newPublicAddress"
               chain="any"
-              :placeholder="'loom0000000000000000000000000000000000000000'"
+              :placeholder="'ship_0x0000000000000000000000000000000000000000'"
               @isValid="isValidAddressFormat"
             />
           </b-form-group>
@@ -115,7 +115,7 @@
                 <div class="spec">{{ $t('components.modals.faucet_delegate_modal.one_year') }}</div>
                 <div class="fee">{{tier.fee | tokenAmount}} SHIP</div>
                 <!-- <div class="spec" style="color:red; text-transform:uppercase"><strong>{{ $t('views.add_key.limited_offer') }}</strong></div> -->
-      
+
               </label>
               <!-- <label class="radio tier disabled" v-for="i in [1,2,3]" :key="i">
                 <input type="radio" disabled v-model="tierSelected" :value="-1">
@@ -318,7 +318,7 @@ main > section {
       margin: 0;
       &.hex {
         > span {
-          cursor: pointer; 
+          cursor: pointer;
         }
         .icon-copy {
           cursor: copy;

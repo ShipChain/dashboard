@@ -13,7 +13,7 @@
       </a>
     </div>
     <div class="account ethereum">
-      <label>Loom</label>
+      <label>Ship</label>
       <address @click="copyPlasma">
         <span class="highlight">{{plasmaAccount | loomAddress}}</span>
         <fa icon="paste"/>

@@ -85,7 +85,7 @@ export const defaultCardData = {
 
 export function formatToLoomAddress(address: string) {
   if (/^0x/.test(address)) {
-    return address.replace("0x", "loom")
+    return address.replace("0x", "ship_0x")
   } else {
     return address
   }
