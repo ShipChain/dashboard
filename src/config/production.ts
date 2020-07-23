@@ -5,28 +5,28 @@ export default {
   plasma: {
     networkId: "mainnet",
     chainId: "default",
-    endpoint: "wss://mainnet-testing.network.shipchain.io:46658",
-    blockExplorer: "https://shipchain-testnet-gamma.network.shipchain.io",
+    endpoint: "wss://shipchain-mainnet.network.shipchain.io:46658",
+    blockExplorer: "https://shipchain-mainnet.network.shipchain.io",
     loomGamesEndpoint: "null",
     historyUrl: "null",
   },
   ethereum: {
-    networkId: "4",
-    networkName: "rinkeby",
+    networkId: "1",
+    networkName: "mainnet",
     chainId: "eth",
-    endpoint: "wss://rinkeby.infura.io/ws",
-    blockExplorer: "https://rinkeby.etherscan.io",
+    endpoint: "wss://mainnet.infura.io/ws/v3/1b8e8507933f40529210b790fcf7300e",
+    blockExplorer: "https://etherscan.io",
     contracts: {
-      mainGateway: "0x40b0F509633BE049fd798d7D693f297b51a571ce",
-      loomGateway: "0x7f031CE5Df8B397680Fe025c9A9a15bCb2bDaBF1",
+      mainGateway: "0x7f031CE5Df8B397680Fe025c9A9a15bCb2bDaBF1",
+      loomGateway: "0xd8bE8814dcedd01D6e5F61551d088386062f9bFb",
     },
   },
   dpos: {
     bootstrapNodes: [
-      "0x42929b891196F888a21e8bf1f4cABE6765Cb9fa7",
-      "0x63A4E3377fA216fc9bA0b792b373235693C81D6c",
-      "0x59bE2289469fE2D164c796ba3453e97136Ea8526",
-      "0xFAEf8Ee80f707D9C0CB73F0A3544F624B364F6B1"
+      "0x7dCAc8Fa01892044f61434bdE0b98748b00d0e96",
+      "0xc54C3086AD892DED506aF50B9259E1C0Fb0AD127",
+      "0x95A7C8a4Cc503948D1a18294c21343DB3D07d698",
+      "0x8281F3A511873708C3a41243cfEbfaD8489DC7fA"
     ],
     analyticsUrl: "null",
   },
