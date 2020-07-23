@@ -47,7 +47,7 @@
         >{{ $t(menu.text) }}</b-nav-item>
       </b-nav>
     </section>
-    <section>
+    <section v-if="menus.help.length">
       <header>
         <h6 class="rmv-spacing">{{ $t('components.faucet_sidebar.help') }}</h6>
       </header>
@@ -121,20 +121,20 @@ export default class FaucetSidebar extends Vue {
         //   to: "/transfer-gateway",
         //   text: "components.faucet_sidebar.transfer_gateway",
         // },
-        {
-          to: "/validator-management",
-          text: "components.faucet_sidebar.validator_management",
-        },
+        // {
+        //   to: "/validator-management",
+        //   text: "components.faucet_sidebar.validator_management",
+        // },
       ],
       help: [
-        {
-          to: "/staking-guide",
-          text: "components.faucet_sidebar.staking_guide",
-        },
-        {
-          to: "/faq",
-          text: "components.faucet_sidebar.faq",
-        },
+        // {
+        //   to: "/staking-guide",
+        //   text: "components.faucet_sidebar.staking_guide",
+        // },
+        // {
+        //   to: "/faq",
+        //   text: "components.faucet_sidebar.faq",
+        // },
         // {
         //   to: "/feedback",
         //   text: "components.faucet_sidebar.feedback_form",

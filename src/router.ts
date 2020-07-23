@@ -58,16 +58,16 @@ const router = new VueRouter({
       component: History,
       beforeEnter: requireAccount,
     },
-    {
-      path: "/faq",
-      name: "FAQ",
-      component: Help,
-    },
-    {
-      path: "/staking-guide",
-      name: "Staking Guide",
-      component: StakingGuide,
-    },
+    // {
+    //   path: "/faq",
+    //   name: "FAQ",
+    //   component: Help,
+    // },
+    // {
+    //   path: "/staking-guide",
+    //   name: "Staking Guide",
+    //   component: StakingGuide,
+    // },
     {
       path: "/wallet",
       name: "depositeWithdraw",
@@ -113,12 +113,12 @@ const router = new VueRouter({
     //   component: FeedbackForm,
     //   beforeEnter: requireAccount,
     // },
-    {
-      path: "/validator-management",
-      name: "validatorManagement",
-      component: ValidatorManagement,
-      beforeEnter: requireAccount,
-    },
+    // {
+    //   path: "/validator-management",
+    //   name: "validatorManagement",
+    //   component: ValidatorManagement,
+    //   beforeEnter: requireAccount,
+    // },
     // {
     //   path: "/transfer-gateway",
     //   name: "transferGateway",
