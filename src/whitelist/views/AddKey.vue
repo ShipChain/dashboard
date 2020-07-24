@@ -94,7 +94,7 @@
               id="deployer-address-input"
               v-model="newPublicAddress"
               chain="any"
-              :placeholder="'ship_0x0000000000000000000000000000000000000000'"
+              :placeholder="'0x0000000000000000000000000000000000000000'"
               @isValid="isValidAddressFormat"
             />
           </b-form-group>
