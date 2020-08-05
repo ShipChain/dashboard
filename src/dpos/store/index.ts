@@ -17,6 +17,8 @@ import { feedbackModule as feedback } from "@/feedback/store"
 import * as Sentry from "@sentry/browser"
 import { i18n } from "@/i18n"
 
+import axios from 'axios'
+
 const log = debug("dash.dpos")
 
 const builder = getStoreBuilder<HasDPOSState>().module("dpos", defaultState())
@@ -151,6 +153,23 @@ export async function refreshValidators(ctx: ActionContext) {
     .forEach((n) => (n.name = n.addr.replace("0x", "loom")))
 
   ctx.state.validators = nodes.filter((n) => !n.totalStaked.isZero())
+
+  // Query validator registry, set isPop = true for all POP validators
+  // https://registry.network.shipchain.io/info/
+  axios.get('https://registry.network.shipchain.io/info/').then((response) => {
+    Object.keys(response.data).forEach((nodeAddr) => {
+      const isPop = response.data[nodeAddr]['preferred_operator_program']
+      if (isPop) {
+        const validator = nodes.find((node) => node.addr === nodeAddr.toLowerCase())
+        if (validator !== undefined) {
+          validator.isPop = true
+        }
+      }
+    })
+  }).catch((error) => {
+    console.log(error);
+  });
+
   ctx.state.loading.validators = false
 }
 

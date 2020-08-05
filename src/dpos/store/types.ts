@@ -65,6 +65,7 @@ export class Validator implements IValidator, ICandidate {
   recentlyMissedBlocks = 0
   missedBlocks: number[] = []
   jailed: boolean = false
+  isPop: boolean = false
 
   /**
    * amount staked by others

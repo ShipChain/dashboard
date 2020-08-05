@@ -26,6 +26,8 @@
         </a>
       </header>
       <dl>
+        <dt v-if="validator.isPop">Preferred Operators Program</dt>
+        <dd v-if="validator.isPop">✔️</dd>
         <dt>{{ $t('views.validator_detail.state') }}</dt>
         <dd>{{validator.active ? $t('views.validator_detail.active') : $t('views.validator_detail.inactive')}}</dd>
         <!--

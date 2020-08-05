@@ -102,6 +102,7 @@ export default class ValidatorList extends Vue {
 
   created() {
     this.validatorFields = [{ key: "name", sortable: true, label: this.$t("views.validator_list.name") },
+      { key: "isPop", sortable: true, label: "POP", formatter: (value) => value? '✔️' : '' },
       { key: "active", sortable: true, label: this.$t("views.validator_detail.active") },
       //  { key: "recentlyMissedBlocks", sortable: true, label: "Recently missed blocks" },
       {
